@@ -7,7 +7,7 @@ else
 	dir="$( cd "$( dirname "${(%):-%N}" )" && pwd )"
 fi
 project="${PWD##*/}"
-bins=("npm" "bower" "grunt" "http-server")
+bins=("node" "npm" "bower" "grunt" "http-server")
 
 deactivate () {
 	for bin in "${bins[@]}"
@@ -32,7 +32,7 @@ else
 	done
 
 	_OLD_PS1="$PS1"
-	PS1_APPEND="(Docker Node/Grunt/Bower $project)"
+	PS1_APPEND="(Docker Node/Grunt/Bower)"
 	if [ ! -n "${ZSH_VERSION-}" ] ; then
 		PS1="\e[1;35m$PS1_APPEND\e[0m $PS1"
 	else
