@@ -13,6 +13,6 @@ docker run \
 	-v /etc/hosts:/etc/hosts \
 	ustwo/sauce-connect \
 		--proxy $proxy_host \
-		--proxy-userpwd $STC_PROXY_USER:$STC_PROXY_PASS \
+		--proxy-userpwd $proxy_auth \
 		--se-port 8080 \
 		--proxy-tunnel
