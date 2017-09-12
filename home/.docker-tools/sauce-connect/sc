@@ -1,7 +1,14 @@
+#!/bin/sh
+sc_port=4445
+
+if (: "${SAUCE_PORT?}" ) 2>/dev/null ; then
+	sc_port=$SAUCE_PORT
+fi
+
 docker run \
 	--rm -it \
 	--network="host" \
-	-p 8080:8080 \
+	-p $sc_port:$sc_port \
 	-e HTTP_PROXY=$HTTP_PROXY \
 	-e HTTPS_PROXY=$HTTP_PROXY \
 	-e http_proxy=$HTTP_PROXY \
@@ -12,7 +19,7 @@ docker run \
 	-e SAUCE_ACCESS_KEY=$SAUCE_ACCESS_KEY \
 	-v /etc/hosts:/etc/hosts \
 	ustwo/sauce-connect \
+		--se-port $sc_port \
 		--proxy $proxy_host \
 		--proxy-userpwd $proxy_auth \
-		--se-port 8080 \
 		--proxy-tunnel
