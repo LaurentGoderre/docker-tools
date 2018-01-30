@@ -4,4 +4,4 @@ RUN npm install -g \
 		grunt-cli \
 		bower \
 		http-server \
-	&& npm cache clean
+	&& npm cache clean --force
