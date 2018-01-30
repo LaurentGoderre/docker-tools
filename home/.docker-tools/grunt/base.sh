@@ -21,5 +21,5 @@ run () {
 	  --pid=host \
 	  --rm \
 	  $extra_params \
-	  laurentgoderre/docker-node-grunt-bower $@
+	  laurentgoderre/docker-tools:grunt $@
 }
