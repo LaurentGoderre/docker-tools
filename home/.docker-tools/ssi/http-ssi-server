@@ -1,0 +1,14 @@
+#!/bin/bash
+if ! type docker > /dev/null; then
+  echo "Docker is required to be present on $PATH"
+  exit 0
+fi
+
+docker run \
+	--rm -it \
+  -u node \
+  -p 8000:8000 \
+	-v /etc/hosts:/etc/hosts \
+  --sig-proxy=true \
+  --pid=host \
+	laurentgoderre/docker-tools:ssi httpServer $@
