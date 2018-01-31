@@ -4,11 +4,16 @@ if ! type docker > /dev/null; then
   exit 0
 fi
 
+src="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo $src
+
 docker run \
 	--rm -it \
-  -u node \
-  -p 8000:8000 \
+  -p 8000:80 \
+  -v "${PWD}":"/usr/local/apache2/htdocs/" \
+  -v "${src}/httpd-ssi.conf":"/usr/local/apache2/conf/httpd.conf" \
 	-v /etc/hosts:/etc/hosts \
   --sig-proxy=true \
   --pid=host \
-	laurentgoderre/docker-tools:ssi httpServer $@
+	laurentgoderre/docker-tools:ssi
