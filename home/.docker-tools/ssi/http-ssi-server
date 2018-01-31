@@ -12,7 +12,6 @@ docker run \
 	--rm -it \
   -p 8000:80 \
   -v "${PWD}":"/usr/local/apache2/htdocs/" \
-  -v "${src}/httpd-ssi.conf":"/usr/local/apache2/conf/httpd.conf" \
 	-v /etc/hosts:/etc/hosts \
   --sig-proxy=true \
   --pid=host \
