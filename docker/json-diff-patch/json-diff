@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var path = require("path");
+var jsondiff = require("jiff");
+var cwd = process.cwd();
+var args = process.argv.slice(2);
+var file1 = require(path.resolve(cwd, args[0]));
+var file2 = require(path.resolve(cwd, args[1]));
+
+console.log(jsondiff.diff(file1, file2));
