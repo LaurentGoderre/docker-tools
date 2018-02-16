@@ -2,3 +2,5 @@ source $HOME/.docker-tools/grunt/activate -n
 
 alias sc="$HOME/.docker-tools/sauce-connect/sc"
 alias http-ssi-server="$HOME/.docker-tools/ssi/http-ssi-server"
+alias json-diff="$HOME/.docker-tools/json-diff-patch/json-diff"
+alias json-patch="$HOME/.docker-tools/json-diff-patch/json-patch"
