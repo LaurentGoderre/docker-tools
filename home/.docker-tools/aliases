@@ -1,0 +1,4 @@
+source $HOME/.docker-tools/grunt/activate -n
+
+alias sc="$HOME/.docker-tools/sauce-connect/sc"
+alias http-ssi-server="$HOME/.docker-tools/ssi/http-ssi-server"
