@@ -17,6 +17,7 @@ docker run \
 	-p $sc_port:$sc_port \
 	-e SAUCE_USERNAME=$SAUCE_USERNAME \
 	-e SAUCE_ACCESS_KEY=$SAUCE_ACCESS_KEY \
+	-e NO_PROXY="$NO_PROXY" \
 	-v /etc/hosts:/etc/hosts \
 	ustwo/sauce-connect \
 		--se-port $sc_port \
