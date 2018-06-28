@@ -11,4 +11,4 @@ docker run -it \
   --pid=host \
   --rm \
   $extra_params \
-  microsoft/azure-cli az $@
+  microsoft/azure-cli az "$@"
