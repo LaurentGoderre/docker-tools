@@ -1,0 +1,14 @@
+docker run -it \
+  -v "${PWD}":"/root" \
+  -v /tmp/:/tmp/ \
+  -v $HOME/.gitconfig:/home/node/.gitconfig \
+  -v $HOME/.netrc:/home/node/.netrc \
+  -e HTTP_PROXY=$HTTP_PROXY \
+  -e HTTPS_PROXY=$HTTP_PROXY \
+  -e http_proxy=$HTTP_PROXY \
+  -e https_proxy=$HTTP_PROXY \
+  --sig-proxy=true \
+  --pid=host \
+  --rm \
+  $extra_params \
+  getsentry/sentry-cli sentry-cli "$@"
