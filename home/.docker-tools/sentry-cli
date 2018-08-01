@@ -9,6 +9,7 @@ docker run -it \
   -e https_proxy=$HTTP_PROXY \
   -e NO_PROXY=$NO_PROXY \
   -e no_proxy=$no_proxy \
+  -e SENTRY_DSN=$SENTRY_DSN \
   --sig-proxy=true \
   --pid=host \
   --rm \
