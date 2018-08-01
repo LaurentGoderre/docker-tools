@@ -17,6 +17,8 @@ run () {
 	  -e HTTPS_PROXY=$HTTP_PROXY \
 	  -e http_proxy=$HTTP_PROXY \
 	  -e https_proxy=$HTTP_PROXY \
+	  -e NO_PROXY=$NO_PROXY \
+	  -e no_proxy=$no_proxy \
 	  --sig-proxy=true \
 	  --pid=host \
 	  --rm \
