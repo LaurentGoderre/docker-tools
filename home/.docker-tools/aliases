@@ -1,5 +1,9 @@
-source $HOME/.docker-tools/grunt/activate -n
-
+alias node="$HOME/.docker-tools/node/node"
+alias npm="$HOME/.docker-tools/node/npm"
+alias npx="$HOME/.docker-tools/node/npx"
+alias grunt="$HOME/.docker-tools/grunt/grunt"
+alias bower="$HOME/.docker-tools/grunt/bower"
+alias http-server="$HOME/.docker-tools/grunt/http-server"
 alias sc="$HOME/.docker-tools/sauce-connect/sc"
 alias http-ssi-server="$HOME/.docker-tools/ssi/http-ssi-server"
 alias json-minify="$HOME/.docker-tools/json-minify/json-minify"

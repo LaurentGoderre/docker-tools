@@ -23,5 +23,5 @@ run () {
 	  --pid=host \
 	  --rm \
 	  $extra_params \
-	  laurentgoderre/docker-tools:grunt $@
+	  node:8 $@
 }
