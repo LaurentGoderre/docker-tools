@@ -1,6 +1,5 @@
-FROM node:8
+FROM node:8-alpine
 
 RUN npm install -g \
-		grunt-cli \
-		bower \
+		http-server \
 	&& npm cache clean --force
