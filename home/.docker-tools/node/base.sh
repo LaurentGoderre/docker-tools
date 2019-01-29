@@ -22,6 +22,7 @@ run () {
 	  --sig-proxy=true \
 	  --pid=host \
 	  --rm \
+          --net=host \
 	  $extra_params \
 	  node:8 $@
 }
