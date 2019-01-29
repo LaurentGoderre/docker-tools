@@ -22,5 +22,6 @@ docker run -it \
   --sig-proxy=true \
   --pid=host \
   --rm \
+  -p 8000:8000 \
   $extra_params \
   laurentgoderre/docker-tools:http-server http-server $@
