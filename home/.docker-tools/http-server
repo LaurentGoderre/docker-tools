@@ -4,6 +4,13 @@ if ! type docker > /dev/null; then
   exit 0
 fi
 
+while getopts ":p:" o; do
+    case "${o}" in
+        p)
+            port=${OPTARG}
+            ;;
+    esac
+done
 
 docker run -it \
   -v "${PWD}":"/home/node/app" \
@@ -22,6 +29,6 @@ docker run -it \
   --sig-proxy=true \
   --pid=host \
   --rm \
-  -p 8000:8000 \
+  -p ${port}:${port} \
   $extra_params \
   laurentgoderre/docker-tools:http-server http-server $@
