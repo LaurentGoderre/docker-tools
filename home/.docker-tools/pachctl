@@ -1,9 +1,10 @@
 pachctl_version="${PACHD_VERSION:-1.8.3}"
 pachd_address="${PACHD_ADDRESS:-localhost:30650}"
+k8s_address="${PACHD_K8S_ADDRESS:-$(echo $PACHD_ADDRESS | sed -e 's/:[0-9]*$//g')}:6443"
 args=(${@})
 
 if [ ! -z "$(echo $pachctl_version | grep -e '^1\.7')" ] && [ ! -z "$(echo "$@" | grep 'port-forward')" ]; then
-  args[${#args[@]}]="-k '--server=https://host.docker.internal:6443'"
+  args[${#args[@]}]="-k '--server=https://${k8s_address}'"
   echo "${args[@]}"
 fi
 
