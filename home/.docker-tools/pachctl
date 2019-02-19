@@ -1,3 +1,12 @@
+pachctl_version="${PACHD_VERSION:-1.8.3}"
+pachd_address="${PACHD_ADDRESS:-localhost:30650}"
+args=(${@})
+
+if [ ! -z "$(echo $pachctl_version | grep -e '^1\.7')" ] && [ ! -z "$(echo "$@" | grep 'port-forward')" ]; then
+  args[${#args[@]}]="-k '--server=https://host.docker.internal:6443'"
+  echo "${args[@]}"
+fi
+
 docker run -i \
   -v "${PWD}":"/home/pachyderm/pwd" \
   -v $HOME/.pachyderm:/home/pachyderm/.pachyderm \
@@ -9,11 +18,12 @@ docker run -i \
   -e https_proxy=$HTTP_PROXY \
   -e NO_PROXY=$NO_PROXY \
   -e no_proxy=$no_proxy \
-  -e PACHD_ADDRESS=${PACHD_ADDRESS:-localhost:30650} \
-  -e ADDRESS=${PACHD_ADDRESS:-localhost:30650} \
+  -e PACHD_ADDRESS=${pachd_address} \
+  -e ADDRESS=${pachd_address} \
   -w "/home/pachyderm/pwd" \
   --sig-proxy=true \
   --pid=host \
   --rm \
   $extra_params \
-  pachctl:${PACHD_VERSION:-1.8.3}-alpine pachctl "$@"
+  pachctl:${pachctl_version:-1.8.3}-alpine pachctl "${args[@]}"
+
