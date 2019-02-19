@@ -16,4 +16,4 @@ docker run -i \
   --pid=host \
   --rm \
   $extra_params \
-  pachctl:1.8.3-alpine pachctl "$@"
+  pachctl:${PACHD_VERSION:-1.8.3}-alpine pachctl "$@"
