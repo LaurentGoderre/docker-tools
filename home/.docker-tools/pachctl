@@ -1,7 +1,7 @@
-docker run -it \
-  -v "${PWD}":"/root" \
-  -v /tmp/:/tmp/ \
-  -v $HOME/.gitconfig:/home/node/.gitconfig \
+docker run -i \
+  -v "${PWD}":"/home/pachyderm/pwd" \
+  -v $HOME/.pachyderm:/home/pachyderm/.pachyderm \
+  -v $HOME/.kube:/home/pachyderm/.kube \
   -v $HOME/.netrc:/home/node/.netrc \
   -e HTTP_PROXY=$HTTP_PROXY \
   -e HTTPS_PROXY=$HTTP_PROXY \
