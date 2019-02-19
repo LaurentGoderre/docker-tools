@@ -9,6 +9,9 @@ docker run -i \
   -e https_proxy=$HTTP_PROXY \
   -e NO_PROXY=$NO_PROXY \
   -e no_proxy=$no_proxy \
+  -e PACHD_ADDRESS=${PACHD_ADDRESS:-localhost:30650} \
+  -e ADDRESS=${PACHD_ADDRESS:-localhost:30650} \
+  -w "/home/pachyderm/pwd" \
   --sig-proxy=true \
   --pid=host \
   --rm \
