@@ -7,4 +7,4 @@ docker run -it \
   --pid=host \
   --rm \
   $extra_params \
-  hashicorp/terraform terraform "$@"
+  hashicorp/terraform $@
