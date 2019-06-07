@@ -1,6 +1,7 @@
 alias node="$HOME/.docker-tools/node/node"
 alias npm="$HOME/.docker-tools/node/npm"
 alias npx="$HOME/.docker-tools/node/npx"
+alias yarn="$HOME/.docker-tools/node/yarn"
 alias grunt="$HOME/.docker-tools/grunt/grunt"
 alias bower="$HOME/.docker-tools/grunt/bower"
 alias http-server="$HOME/.docker-tools/http-server"
