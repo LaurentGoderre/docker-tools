@@ -22,6 +22,7 @@ docker run -i \
   -e PACHD_ADDRESS=${pachd_address} \
   -e ADDRESS=${pachd_address} \
   -w "/home/pachyderm/pwd" \
+  -u pachyderm \
   --sig-proxy=true \
   --pid=host \
   --rm \
