@@ -1,3 +1,4 @@
+#!/bin/bash
 pachctl_version="${PACHD_VERSION:-1.8.3}"
 pachd_address="${PACHD_ADDRESS:-localhost:30650}"
 k8s_address="${PACHD_K8S_ADDRESS:-$(echo $PACHD_ADDRESS | sed -e 's/:[0-9]*$//g')}:6443"
@@ -8,18 +9,17 @@ if [ ! -z "$(echo $pachctl_version | grep -e '^1\.7')" ] && [ ! -z "$(echo "$@" 
   echo "${args[@]}"
 fi
 
-docker run -i \
-  -v "${PWD}":"/home/pachyderm/pwd" \
+docker run \
+  --rm -i \
+  --sig-proxy=true \
+  --pid=host \
+  -e PACHD_ADDRESS=${pachd_address} \
+  -e ADDRESS=${pachd_address} \
   -v $HOME/.pachyderm:/home/pachyderm/.pachyderm \
   -v $HOME/.kube:/home/pachyderm/.kube \
   -v $HOME/.netrc:/home/node/.netrc \
-  -e PACHD_ADDRESS=${pachd_address} \
-  -e ADDRESS=${pachd_address} \
+  -v "${PWD}":"/home/pachyderm/pwd" \
   -w "/home/pachyderm/pwd" \
   -u pachyderm \
-  --sig-proxy=true \
-  --pid=host \
-  --rm \
   $extra_params \
   pachctl:${pachctl_version:-1.8.3}-alpine pachctl "${args[@]}"
-

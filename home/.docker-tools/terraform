@@ -1,11 +1,12 @@
-docker run -it \
+#!/bin/bash
+docker run \
+  --rm -it \
+  --sig-proxy=true \
+  --pid=host \
   -v "${PWD}":"/tf" \
   -v /tmp/:/tmp/ \
   -v $HOME/.netrc:/root/.netrc \
   -v $HOME/.azure:/root/.azure \
   -w "/tf" \
-  --sig-proxy=true \
-  --pid=host \
-  --rm \
   $extra_params \
   hashicorp/terraform $@
