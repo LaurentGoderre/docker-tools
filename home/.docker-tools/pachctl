@@ -17,6 +17,7 @@ docker run \
   -e ADDRESS=${pachd_address} \
   -v $HOME/.pachyderm:/home/pachyderm/.pachyderm \
   -v $HOME/.kube:/home/pachyderm/.kube \
+  -v $HOME/.minikube:/home/$USER/.minikube \
   -v $HOME/.netrc:/home/node/.netrc \
   -v "${PWD}":"/home/pachyderm/pwd" \
   -w "/home/pachyderm/pwd" \
