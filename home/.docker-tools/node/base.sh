@@ -18,5 +18,5 @@ run () {
     -w "/home/node/app" \
     -u node \
     $extra_params \
-    node:8 $@
+    node:8-slim $@
 }
